@@ -9,7 +9,7 @@ const clinic = {
   director: '鈴木 静',
   directorKana: 'すずき しずか',
   tel: '03-6275-3123',
-  telHref: '05017851818',
+  telHref: '0362753123',
   zip: '〒141-0021',
   address: '東京都品川区上大崎2丁目17-6 千里馬ビル2F',
   addressLine1: '東京都品川区上大崎2丁目17-6',
