@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# 一時プレビュー
+_preview_tmp.html
+
+# 注) dist/ は「配信する完成サイト」なので追跡します（Nginx の公開ディレクトリ）。
+#     サーバー側でビルドする運用に切り替える場合は、下行のコメントを外して dist を無視できます。
+# dist/
