@@ -19,7 +19,7 @@ const clinic = {
   closed: '火曜日・祝日',
   reserveUrl: 'contact.html',
   jobMedleyUrl: 'https://job-medley.com/facility/576737/',
-  mapEmbed: 'https://maps.google.com/maps?q=東京都品川区上大崎2丁目17-6%20千里馬ビル&t=&z=16&ie=UTF8&iwloc=&output=embed',
+  mapEmbed: 'https://maps.google.com/maps?q=東京都品川区上大崎2丁目17-6+(千里馬ビル)&t=&z=16&ie=UTF8&iwloc=B&output=embed',
   mapLink: 'https://www.google.com/maps/search/?api=1&query=東京都品川区上大崎2丁目17-6',
   baseUrl: 'https://www.shizuka-dental.jp',
   // 診療時間: 週の各コマ（月〜日）に対する ● / 休
