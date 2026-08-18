@@ -698,6 +698,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 20px); }
   .doctor-photo { max-width: 360px; }
   .med-grid { grid-template-columns: repeat(3, 1fr); }
   .access-grid { grid-template-columns: 1fr; }
+  .map-embed { min-height: 460px; }
   .clinic-gallery { grid-template-columns: repeat(2, 1fr); }
   .cg-large { grid-column: span 2; grid-row: auto; }
 }

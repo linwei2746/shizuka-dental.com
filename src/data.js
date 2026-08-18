@@ -19,7 +19,7 @@ const clinic = {
   closed: '火曜日・祝日',
   reserveUrl: 'contact.html',
   jobMedleyUrl: 'https://job-medley.com/facility/576737/',
-  mapEmbed: 'https://maps.google.com/maps?q=東京都品川区上大崎2丁目17-6+(千里馬ビル)&t=&z=16&ie=UTF8&iwloc=B&output=embed',
+  mapEmbed: 'https://maps.google.com/maps?q=東京都品川区上大崎2丁目17-6+(千里馬ビル)&t=&z=18&ie=UTF8&iwloc=B&output=embed',
   mapLink: 'https://www.google.com/maps/search/?api=1&query=東京都品川区上大崎2丁目17-6',
   baseUrl: 'https://www.shizuka-dental.jp',
   // 診療時間: 週の各コマ（月〜日）に対する ● / 休
@@ -203,9 +203,9 @@ const symptoms = [
 //  お知らせ（新着情報）
 // ------------------------------------------------------------
 const news = [
-  { date: '2026.09.01', cat: '重要', title: '本日、目黒しずか歯科クリニックを開院いたしました。地域の皆様のご来院を心よりお待ちしております。' },
+
   { date: '2026.08.28', cat: 'イベント', title: '内覧会を開催いたします（8/28〜8/30）。ご予約不要・参加費無料で院内を見学いただけます。' },
-  { date: '2026.08.20', cat: '診療案内', title: '各種クレジットカード決済に対応しております。お支払い方法についてはお気軽にお問い合わせください。' },
+
   { date: '2026.08.16', cat: 'お知らせ', title: 'クリニックの公式ホームページを公開いたしました。' },
 ];
 
