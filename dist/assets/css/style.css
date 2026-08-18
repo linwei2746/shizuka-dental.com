@@ -301,7 +301,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 20px); }
 /* ============================================================
    GREETING
    ============================================================ */
-.greeting-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+.greeting-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; }
 .greeting-lead { font-family: var(--font-serif); font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--navy); line-height: 1.6; margin-bottom: 26px; }
 .greeting-text p { margin-bottom: 18px; }
 .greeting-sign { margin-top: 30px; display: flex; align-items: baseline; gap: 14px; }
