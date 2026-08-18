@@ -53,7 +53,7 @@ ${renderPageHero('Clinic', '医院案内', 'リラックスして通える、清
     <h3 class="equip-subhead">主な設備のご紹介</h3>
     <div class="device-grid">
       ${[
-      { name: '滅菌機', en: 'Sterilizer', desc: '治療器具を高水準で滅菌し、清潔で安全な状態を保ちます。' },
+      { name: 'クラスB滅菌器（リサ）', en: 'Sterilizer (Class B)', desc: '世界最高基準「クラスB」のオートクレーブ「リサ」を導入。複雑な構造の器具やハンドピース内部まで徹底滅菌し、高度な感染防止対策を徹底しています。' },
       { name: '口腔外バキューム', en: 'Oral Vacuum', desc: '治療中に飛散する粉塵や細菌を吸引し、院内の空気を清潔に保ちます。' },
       { name: '歯科用CT', en: 'Dental CT', desc: '立体的な画像で、平面のレントゲンでは見えない部分まで精密に診断します。' },
       { name: 'デジタルレントゲン', en: 'X-ray', desc: '少ない被ばく量で、むし歯や骨の状態を正確に確認します。' },
