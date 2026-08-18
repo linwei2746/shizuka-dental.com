@@ -7,7 +7,7 @@ const rel = (depth) => '../'.repeat(depth);
 const navMain = [
   { label: 'ホーム', href: 'index.html' },
   { label: '医院案内', href: 'clinic.html' },
-  { label: 'スタッフ紹介', href: 'doctor.html' },
+  { label: '院長紹介', href: 'doctor.html' },
   { label: '診療案内', href: 'medical/index.html' },
   { label: '料金表', href: 'price.html' },
   { label: 'アクセス', href: 'access.html' },
@@ -188,7 +188,7 @@ function renderFooter(depth) {
           <ul>
             <li><a href="${r}index.html">ホーム</a></li>
             <li><a href="${r}clinic.html">医院案内</a></li>
-            <li><a href="${r}doctor.html">スタッフ紹介</a></li>
+            <li><a href="${r}doctor.html">院長紹介</a></li>
             <li><a href="${r}price.html">料金表</a></li>
             <li><a href="${r}access.html">アクセス</a></li>
             <li><a href="${r}news.html">お知らせ</a></li>

@@ -87,26 +87,8 @@ ${renderPageHero('Clinic', '医院案内', 'リラックスして通える、清
 // ============================================================
 {
   const depth = 0;
-  // スタッフ紹介（院長と同じレイアウト。写真・氏名は後日差し替え）
-  const staff = [
-    {
-      role: '歯科衛生士', name: '小松 美公', kana: 'こまつ みき', photo: 'スタッフ写真',
-      message: [
-        'こんにちは、歯科衛生士の小松と申します。患者様お一人おひとりに寄り添い、丁寧な予防処置とクリーニングを心がけています。',
-        '「歯医者さんは少し苦手」という方も、リラックスして通っていただけるよう、やさしく分かりやすいご説明を大切にしています。歯みがきのちょっとしたコツから、お口の小さなお悩みまで、どうぞお気軽にお声がけください。',
-      ],
-    },
-  ];
-  const staffBlocks = staff.map(s => `<div class="doctor-intro staff-block">
-      <div class="doctor-photo"><img src="assets/images/staff/staff-002.png" alt="${s.name}"></div>
-      <div class="doctor-body">
-        <p class="doctor-role">${s.role}</p>
-        <p class="doctor-name">${s.name}<span class="doctor-kana">${s.kana}</span></p>
-        <div class="doctor-message">${s.message.map(p => `<p>${p}</p>`).join('\n')}</div>
-      </div>
-    </div>`).join('\n');
   const body = `
-${renderPageHero('Staff', 'スタッフ紹介', '痛みと不安に配慮した、やさしい歯科治療を。', { depth, crumbs: [{ label: 'スタッフ紹介' }] })}
+${renderPageHero('Doctor', '院長紹介', '痛みと不安に配慮した、やさしい歯科治療を。', { depth, crumbs: [{ label: '院長紹介' }] })}
 <section class="section">
   <div class="container">
     <div class="doctor-intro">
@@ -132,17 +114,10 @@ ${renderPageHero('Staff', 'スタッフ紹介', '痛みと不安に配慮した�
       </div>
     </div>
   </div>
-</section>
-<section class="section section-alt">
-  <div class="container">
-    ${sectionHead('Staff', 'スタッフ')}
-    <p class="sec-desc">経験豊富なスタッフが、皆様のご来院を笑顔でお迎えします。</p>
-    ${staffBlocks}
-  </div>
 </section>`;
   write('doctor.html', renderPage({
-    title: `スタッフ紹介｜${clinic.name}`,
-    description: `${clinic.name}のスタッフ紹介。院長 ${clinic.director}のごあいさつと、スタッフのご紹介。痛みと不安に配慮した、やさしい歯科治療を心がけています。`,
+    title: `院長紹介｜${clinic.name}`,
+    description: `${clinic.name}の院長 ${clinic.director}のごあいさつ。痛みと不安に配慮した、やさしい歯科治療を心がけています。`,
     depth, active: 'doctor.html', canonical: 'doctor.html', body,
   }));
 }

@@ -83,7 +83,7 @@ const body = `
         <p>この度、目黒駅前にて「${clinic.name}（${clinic.nameEn}）」を開院いたしました。地域の皆様の健康な毎日を支えるパートナーとして、この地で診療をスタートできることを大変嬉しく思っております。</p>
         <p>当院では『痛みの少ない、丁寧な治療』を心がけ、小さなお子様からご高齢の方まで安心して通っていただける環境づくりを大切にしています。お口のことで気になることがあれば、どんな些細なことでもお気軽にご相談ください。皆様のご来院を、スタッフ一同心よりお待ちしております。</p>
         <p class="greeting-sign"><span class="sign-title">院長</span><span class="sign-name">${clinic.director}</span></p>
-        <a href="doctor.html" class="link-arrow">スタッフ紹介を見る</a>
+        <a href="doctor.html" class="link-arrow">院長紹介を見る</a>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@ const body = `
         <div class="pickup-thumb pickup-thumb-1"><span>Precision</span></div>
         <div class="pickup-body">
           <h3>精密な診査・診断にこだわる</h3>
-          <p>肉眼では確認しきれない細部にまでこだわり、正確な診断を大切にしています。一つひとつの治療を丁寧に行うことで、より長持ちする結果を目指します。</p>
+          <p>正確な診断と拡大視野による精密な治療を大切にしています。一つひとつの治療を丁寧に行うことで、より長持ちする結果を目指します。</p>
           <a href="clinic.html" class="link-arrow">詳しくはこちら</a>
         </div>
       </article>
