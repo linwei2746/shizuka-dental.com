@@ -25,7 +25,7 @@ const body = `
     <h1 class="hero-catch">やさしい治療で、<br>笑顔あふれる毎日を。</h1>
     <p class="hero-lead">
       痛みの少ない、丁寧な歯科治療を。<br>
-      小さなお子様からご高齢の方まで、地域の皆様の<br class="pc-br">お口の健康を支えるパートナーを目指します。
+      地域の皆様のお口の健康を支えます。
     </p>
   </div>
   <div class="hero-wave">
