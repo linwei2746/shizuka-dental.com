@@ -24,7 +24,7 @@ function hoursTable() {
         <tr><th>${clinic.hours.pm.label}</th>${clinic.hours.pm.days.map(cell).join('')}</tr>
       </tbody>
     </table>
-    <p class="hours-note">休診日：${clinic.closed}　／　▲最終受付は診療終了の30分前まで</p>
+    <p class="hours-note">休診日：${clinic.closed}<br>▲最終受付は診療終了の30分前まで</p>
   </div>`;
 }
 
