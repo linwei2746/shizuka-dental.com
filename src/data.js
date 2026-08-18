@@ -14,7 +14,7 @@ const clinic = {
   address: '東京都品川区上大崎2丁目17-6 千里馬ビル2F',
   addressLine1: '東京都品川区上大崎2丁目17-6',
   addressLine2: '千里馬ビル2F',
-  access: 'JR山手線・東急目黒線・都営三田線・東京メトロ南北線「目黒駅」徒歩3分',
+  access: 'JR山手線・東急目黒線・都営三田線・<br>東京メトロ南北線「目黒駅」徒歩3分',
   station: '「目黒駅」徒歩3分',
   closed: '火曜日・祝日',
   reserveUrl: 'contact.html',
