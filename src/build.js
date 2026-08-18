@@ -256,7 +256,7 @@ ${renderPageHero('Medical', '診療案内', 'むし歯や歯周病の治療か�
     <div class="prep-block">
       <h3 class="block-title">ご来院時にお持ちいただくもの</h3>
       <ul class="check-list">
-        <li>健康保険証（マイナ保険証も可）</li>
+        <li>マイナ保険証または資格確認証</li>
         <li>各種医療証（お持ちの方）</li>
         <li>お薬手帳（服用中のお薬がある方）</li>
         <li>他院の紹介状・レントゲン（お持ちの方）</li>
