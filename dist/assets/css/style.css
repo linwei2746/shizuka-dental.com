@@ -213,7 +213,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 20px); }
   border: none;
 }
 .hero-catch {
-  font-family: var(--font-serif); font-size: clamp(2.2rem, 6vw, 3.9rem);
+  font-family: var(--font-serif); font-size: clamp(1.45rem, 5.5vw, 3.9rem);
   color: var(--navy); line-height: 1.35; letter-spacing: 0.04em;
   text-shadow: 0 2px 18px rgba(255,255,255,0.6);
 }
