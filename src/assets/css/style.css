@@ -1361,9 +1361,8 @@ section[id] {
 }
 
 .cg-large .cg-ph {
-  aspect-ratio: auto;
-  height: calc(100% - 46px);
-  min-height: 240px;
+  aspect-ratio: 4/3;
+  height: auto;
 }
 
 .cg-img {
@@ -1375,9 +1374,8 @@ section[id] {
 }
 
 .cg-large .cg-img {
-  aspect-ratio: auto;
-  height: calc(100% - 46px);
-  min-height: 240px;
+  aspect-ratio: 4/3;
+  height: auto;
 }
 
 .cg-item figcaption {
@@ -2714,7 +2712,25 @@ section[id] {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* Compact desktop header (1025–1280px): shrink nav / logo / CTA so the
+   full text navigation fits on typical laptops instead of collapsing to a hamburger. */
 @media (max-width: 1280px) {
+  .header-inner { padding: 0 14px; gap: 10px; }
+  .brand-mark { height: 42px; }
+  .brand-ja { font-size: 0.98rem; }
+  .brand-en { font-size: 0.5rem; letter-spacing: 0.1em; }
+  .gnav { gap: 8px; }
+  .gnav-list { gap: 0; }
+  .gnav-list > li > a { font-size: 0.78rem; padding: 8px 5px; letter-spacing: 0.01em; }
+  .gnav-list > li > a::after { left: 5px; right: 5px; }
+  .head-btn { padding: 0 12px; gap: 6px; }
+  .head-btn-icon svg { width: 20px; height: 20px; }
+  .head-btn-title { font-size: 0.96rem; }
+  .head-btn-sub { display: none; }
+  .gnav-cta { margin-right: -14px; }
+}
+
+@media (max-width: 1024px) {
   .gnav-list {
     display: none;
   }
@@ -2724,7 +2740,7 @@ section[id] {
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
 
   /* Mobile drawer nav */
   .hamburger {
