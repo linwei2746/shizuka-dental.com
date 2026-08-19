@@ -41,7 +41,7 @@ function infoTable() {
 
 function mapEmbed() {
   return `<div class="map-embed">
-    <iframe src="${clinic.mapEmbed}" width="100%" height="100%" style="border:0; border-radius: 20px; min-height: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${clinic.name} 地図"></iframe>
+    <img src="assets/images/map/access-map.png" alt="${clinic.name} アクセスマップ" loading="lazy">
   </div>`;
 }
 
@@ -58,15 +58,11 @@ function treatmentGrid(depth) {
 }
 
 function featureList(depth) {
-  const r = rel(depth);
   return `<div class="feature-list">
-    ${features.map((f, i) => `<div class="feature-row ${i % 2 ? 'reverse' : ''}">
-      <div class="feature-visual"><span class="feature-num">${f.num}</span></div>
-      <div class="feature-body">
-        <span class="feature-tag">Feature ${f.num}</span>
-        <h3 class="feature-title">${f.title}</h3>
-        <p>${f.body}</p>
-      </div>
+    ${features.map((f) => `<div class="feature-card">
+      <span class="feature-tag">Feature ${f.num}</span>
+      <h3 class="feature-title">${f.title}</h3>
+      <p>${f.body}</p>
     </div>`).join('\n')}
   </div>`;
 }

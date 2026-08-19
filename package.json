@@ -10,5 +10,8 @@
     "dev": "node src/build.js && cd dist && python -m http.server 8000"
   },
   "author": "",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "sharp": "^0.35.3"
+  }
 }
