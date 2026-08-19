@@ -4,8 +4,17 @@ const { clinic, treatments, features, symptoms, news } = require('./data');
 const { renderPage, renderPageHero, renderBreadcrumb } = require('./layout');
 const { sectionHead, hoursTable, infoTable, mapEmbed, treatmentGrid, featureList } = require('./components');
 
-// Output goes to dist/ (the deployable site). Source lives in src/ and dist/assets/.
+// Output goes to dist/ (the deployable site). ALL source lives in src/.
 const ROOT = path.resolve(__dirname, '../dist');
+const SRC_ASSETS = path.resolve(__dirname, 'assets');
+const DIST_ASSETS = path.join(ROOT, 'assets');
+
+// Copy src/assets → dist/assets so dist/ is a complete, self-contained site.
+function copyAssets() {
+  fs.rmSync(DIST_ASSETS, { recursive: true, force: true });
+  fs.cpSync(SRC_ASSETS, DIST_ASSETS, { recursive: true });
+  console.log('  ✓ assets/ (copied from src)');
+}
 const write = (rel, html) => {
   const full = path.join(ROOT, rel);
   fs.mkdirSync(path.dirname(full), { recursive: true });
@@ -59,8 +68,7 @@ ${renderPageHero('Clinic', '医院案内', 'リラックスして通える、清
       { name: '歯科用CT', en: 'Dental CT', desc: '立体的な画像で、平面のレントゲンでは見えない部分まで精密に診断します。' },
       { name: 'デジタルレントゲン', en: 'X-ray', desc: '少ない被ばく量で、むし歯や骨の状態を正確に確認します。' },
       { name: '拡大鏡（ルーペ）', en: 'Loupe', desc: '視野を拡大し、より繊細で正確な処置を行います。' },
-      { name: '歯科用ユニット', en: 'Dental Unit', desc: 'リラックスして治療を受けていただける、清潔な診療チェアです。' },
-      { name: 'ホワイトニングマシン', en: 'Whitening', desc: '歯を削らずに、薬剤と光で白く明るい歯元へ導きます。' },
+      { name: '歯科用ユニット', en: 'Dental Unit', desc: 'リラックスして治療を受けていただける、清潔な診療チェアです。座りやすさにこだわっています。' },
       { name: 'エアフロー', en: 'Air Flow', desc: '微細なパウダーで、歯の着色やバイオフィルムを効率よく除去します。' },
     ].map(e => `<figure class="device-card">
         <div class="device-photo"><span>${e.en}</span></div>
@@ -139,7 +147,7 @@ ${renderPageHero('Price', '料金表', '自由診療の料金の目安をご案�
   <div class="container narrow">
     <p class="price-lead">むし歯・歯周病治療などの一般的な診療は<strong>保険診療</strong>で対応しております。以下は自由診療（自費）の料金の目安です。表示価格は税込です。</p>
     ${priceTable('ホワイトニング', [
-    ['オフィスホワイトニング', '¥16,500〜', '医院で行う施術'],
+    ['ホワイトニング', '¥16,500〜', '医院で行う施術'],
     ['ホームホワイトニング', '¥22,000〜', 'マウスピース・薬剤込'],
   ])}
     ${priceTable('セラミック治療（詰め物・被せ物）', [
@@ -226,12 +234,12 @@ ${renderPageHero('News', 'お知らせ', '', { depth, crumbs: [{ label: 'お知�
 {
   const depth = 1;
   const firstSteps = [
-    { n: '01', t: 'ご予約', d: 'お電話またはWEBフォームよりご予約ください。急な痛みなど、当日のご相談もお気軽にどうぞ。' },
-    { n: '02', t: 'ご来院・受付', d: '保険証をご持参のうえ、予約時間の少し前にお越しください。問診票にご記入いただきます。' },
+    { n: '01', t: 'ご予約', d: 'WEBフォームまたはお電話よりご予約ください。急な痛みなど、当日のご相談もお気軽にどうぞ。' },
+    { n: '02', t: 'ご来院・受付', d: '保険証をご持参のうえ、予約時間の少し前にお越しください。' },
     { n: '03', t: 'カウンセリング', d: 'お困りの症状やご希望を丁寧に伺います。気になることは何でもお聞かせください。' },
     { n: '04', t: '検査・診断', d: '必要な検査を行い、お口の状態を確認します。結果は分かりやすくご説明します。' },
-    { n: '05', t: '治療計画のご提案', d: '検査結果をもとに、治療の選択肢をご提案。ご納得いただいたうえで治療を進めます。' },
-    { n: '06', t: '治療・メンテナンス', d: '治療後も、健康なお口を保つための定期メンテナンスをご案内します。' },
+    { n: '05', t: '治療計画のご提案', d: '検査結果をもとに、治療の選択肢をご提案します。ご納得いただいたうえで治療を進めます。' },
+    { n: '06', t: '治療・メンテナンス', d: '治療後も、お口の健康を保つための定期メンテナンスをご案内します。' },
   ];
   const body = `
 ${renderPageHero('Medical', '診療案内', 'むし歯や歯周病の治療から、予防・小児・矯正・審美まで幅広く対応します。', { depth, crumbs: [{ label: '診療案内' }] })}
@@ -457,5 +465,7 @@ ${urls.map(u => `  <url>\n    <loc>${clinic.baseUrl}/${u}</loc>\n    <lastmod>${
   write('sitemap.xml', sitemap);
   write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${clinic.baseUrl}/sitemap.xml\n`);
 }
+
+copyAssets();
 
 console.log('\n✅ Build complete.');

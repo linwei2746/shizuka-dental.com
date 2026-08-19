@@ -1,63 +1,66 @@
 # 目黒しずか歯科クリニック 公式サイト
 
 ar-dc.com の構成を参考にした、正式開業後のコーポレートサイト（静的HTML）。
-小さな静的サイトジェネレーターで `src/` から `dist/` を生成し、`dist/` をそのまま Nginx 等で配信します。
+小さな静的サイトジェネレーターで **`src/`（ソース）** から **`dist/`（配信物）** を生成します。
+
+## 大原則（これだけ覚えればOK）
+
+> **編集するのは `src/` だけ。`dist/` は自動生成される「完成品」なので手で触らない。**
+
+ページ内容もCSSも画像も、すべて `src/` の中を編集 → ビルドすると `dist/` がまるごと再生成されます。
+`dist/*.html` を直接書き換えても、次のビルドで上書きされます（＝二重管理は不要）。
 
 ## ディレクトリ構成
 
 ```
 02.静-new/
-├── src/                      ← ★ ソース（ここを編集する）
-│   ├── data.js               … クリニック情報・診療内容・お知らせ 等のデータ
+├── src/                      ← ★ ここだけ編集する（ソース一式）
+│   ├── data.js               … 医院情報・診療内容・料金・お知らせ 等のデータ
 │   ├── layout.js             … 共通レイアウト（head / ヘッダー / フッター / CTA）
 │   ├── components.js         … 共通パーツ（診療時間表・診療グリッド 等）
-│   ├── build.js              … 生成スクリプト（dist/ へ出力）
-│   └── content/
-│       └── index.js          … トップページの中身
+│   ├── content/index.js      … トップページの中身
+│   ├── build.js              … 生成スクリプト
+│   ├── watch.js              … 自動リビルド（監視）
+│   └── assets/               … css / js / images（← CSS・画像もここで編集）
+│       ├── css/style.css
+│       ├── js/main.js
+│       └── images/…
 │
-├── dist/                     ← ★ 配信する完成サイト（Nginx の公開ディレクトリ）
-│   ├── index.html / *.html   … 生成物（手で編集しない）
-│   ├── medical/*.html        … 診療案内（生成物）
-│   ├── assets/               … css / js / images（★ここは手編集OK。生成対象外）
-│   │   ├── css/style.css
-│   │   ├── js/main.js
-│   │   └── images/…
-│   ├── sitemap.xml / robots.txt … 生成物
+├── dist/                     ← ★ 自動生成（手で触らない）＝ 配信する完成サイト
+│   ├── *.html, medical/*.html
+│   ├── assets/               … src/assets をコピーしたもの
+│   └── sitemap.xml, robots.txt
 │
-├── reference/                … 参考資料（配信されない・サイトには含めない）
-├── package.json              … npm スクリプト
-├── .gitignore
-└── README.md
+├── reference/                … 参考資料（配信しない）
+├── package.json / .gitignore / README.md
 ```
 
-**考え方**：`src/` は「設計図」、`dist/` は「完成品（配信物）」。
-HTML は生成物なので直接編集しない。CSS/JS/画像（`dist/assets/`）は静的パススルーなので直接編集してよい。
+## 使い方
 
-## 編集・ビルド・プレビュー
+| やりたいこと | コマンド |
+|---|---|
+| 一度だけビルド | `npm run build` |
+| **編集しながら自動反映**（推奨） | `npm run watch` |
+| ローカル表示（別ターミナル） | `npm run serve` → http://localhost:8000 |
 
-内容（テキスト・構成）を変えたら `src/` を編集し、再ビルドして全ページへ反映します：
+おすすめの流れ：ターミナルを2つ開き、片方で `npm run watch`（保存するたび `dist/` を自動更新）、
+もう片方で `npm run serve`。あとは `src/` を編集して保存 → ブラウザを更新するだけです。
 
-```bash
-npm run build          # = node src/build.js  → dist/ を再生成
-```
+### どこを編集する？
 
-ローカルで確認（`dist/` を配信）：
-
-```bash
-npm run serve          # = cd dist && python -m http.server 8000
-```
-
-→ ブラウザで http://localhost:8000/ を開く（`npm run dev` はビルド＋起動を一括実行）。
-
-- **テキスト/データ**（診療内容・料金・お知らせ・院長情報など）… `src/data.js`
-- **ヘッダー/フッター/共通CTA** … `src/layout.js`
-- **色・フォント・レイアウト** … `dist/assets/css/style.css`（`:root` の変数で配色を一括変更可・即反映）
-- **ページの並びや文章** … トップは `src/content/index.js`、その他は `src/build.js`
+| 変えたいもの | 編集ファイル |
+|---|---|
+| 文章・料金・お知らせ・医院情報 | `src/data.js` |
+| ヘッダー / フッター / 共通CTA | `src/layout.js` |
+| トップページの構成・文章 | `src/content/index.js` |
+| 各ページの構成・文章 | `src/build.js` |
+| 色・フォント・デザイン | `src/assets/css/style.css`（`:root` の変数で配色を一括変更）|
+| 画像 | `src/assets/images/` に置く |
 
 ## デプロイ
 
 `dist/` の中身をそのまま公開ディレクトリに配置します（Nginx の `root` を `.../dist` に向ける）。
-`src/` や `reference/` は配信対象に含めません。
+`dist/` は完全に自動生成なので、`rm -rf dist && npm run build` でいつでも作り直せます。
 
 ## 配色（ロゴのネイビー＋ゴールドを軸に、旧サイトのオレンジ／グリーンをアクセントに）
 
@@ -71,6 +74,6 @@ npm run serve          # = cd dist && python -m http.server 8000
 
 ## 未確定・要差し替え項目
 
-- 院内ギャラリー・設備など一部の**写真**はプレースホルダー表示（`dist/assets/images/` に実写を追加して差し替え）。
-- `dist/contact.html` のフォームは**デモ表示**。実送信はサーバー側（メール送信 or フォームサービス）の設定が必要。
-- `src/data.js` の**料金・お知らせ**の内容はサンプル。実情報に更新してください。
+- 院内ギャラリー・設備など一部の**写真**はプレースホルダー表示（`src/assets/images/` に実写を追加）。
+- `contact.html` のフォームは**デモ表示**。実送信はサーバー側の設定が必要。
+- `src/data.js` の**料金・お知らせ**はサンプル。実情報に更新してください。

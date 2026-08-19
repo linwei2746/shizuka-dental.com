@@ -2,9 +2,10 @@
   "name": "meguro-shizuka-dental-clinic",
   "version": "1.0.0",
   "private": true,
-  "description": "目黒しずか歯科クリニック 公式サイト — 静的サイトジェネレーター（src/ で編集し dist/ を生成）",
+  "description": "目黒しずか歯科クリニック 公式サイト — 静的サイトジェネレーター（src/ を編集し dist/ を生成）",
   "scripts": {
     "build": "node src/build.js",
+    "watch": "node src/watch.js",
     "serve": "cd dist && python -m http.server 8000",
     "dev": "node src/build.js && cd dist && python -m http.server 8000"
   },
